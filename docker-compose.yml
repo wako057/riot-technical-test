@@ -1,0 +1,8 @@
+services:
+  api:
+    build: ./docker
+    image: riot-tecnical:0.0.1
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/srv/
