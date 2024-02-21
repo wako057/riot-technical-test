@@ -12,7 +12,7 @@ import { FlexibleInputDto } from '../dto/flexibleinput.dto';
 import { SignatureDto } from '../dto/signature.dto';
 
 @Controller()
-export class EncryptController {
+export class CryptController {
   constructor(private cryptService: CryptService) {}
 
   @Post('encrypt')
