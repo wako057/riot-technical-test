@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CryptService } from './crypt.service';
 import { Base64 } from '../providers/base64/base64';
 import { FlexibleInputDto } from '../dto/flexibleinput.dto';
+import { Sha256 } from '../providers/sha256/sha256';
 
 describe('ServicesService', () => {
   let service: CryptService;
@@ -21,7 +22,7 @@ describe('ServicesService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CryptService, Base64],
+      providers: [CryptService, Base64, Sha256],
     }).compile();
 
     service = module.get<CryptService>(CryptService);

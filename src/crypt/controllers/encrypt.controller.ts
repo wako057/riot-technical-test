@@ -7,9 +7,9 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CryptService } from '../../services/crypt.service';
-import { FlexibleInputDto } from '../../dto/flexibleinput.dto';
-import { SignatureDto } from '../../dto/signature.dto';
+import { CryptService } from '../services/crypt.service';
+import { FlexibleInputDto } from '../dto/flexibleinput.dto';
+import { SignatureDto } from '../dto/signature.dto';
 
 @Controller()
 export class EncryptController {
