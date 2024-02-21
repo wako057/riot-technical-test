@@ -1,10 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Base64 } from '../providers/base64/base64';
 import { FlexibleInputDto } from '../dto/flexibleinput.dto';
+import { HmacDto } from '../dto/hmac.dto';
+import { Sha256 } from '../providers/sha256/sha256';
+import { SignatureDto } from '../dto/signature.dto';
 
 @Injectable()
 export class CryptService {
-  constructor(private encryptor: Base64) {}
+  constructor(
+    private encryptor: Base64,
+    private hasher: Sha256,
+  ) {}
 
   encrypt(dataToEncrypt: FlexibleInputDto): FlexibleInputDto {
     const output = new FlexibleInputDto();
@@ -44,5 +50,21 @@ export class CryptService {
     }
 
     return output;
+  }
+
+  sign(dataToSign: FlexibleInputDto): HmacDto {
+    const output = new HmacDto();
+
+    output.signature = this.hasher.hash(JSON.stringify(dataToSign));
+
+    return output;
+  }
+
+  verify(dataToCheck: SignatureDto): boolean {
+    const signature: string = this.hasher.hash(
+      JSON.stringify(dataToCheck.data),
+    );
+
+    return dataToCheck.signature === signature;
   }
 }
