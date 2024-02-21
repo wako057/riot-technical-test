@@ -4,14 +4,10 @@ import { IcryptInterface } from '../icrypt.interface';
 @Injectable()
 export class Base64 implements IcryptInterface {
   encrypt(input: string): string {
-    const back: string = Buffer.from(input).toString('base64');
-
-    return back;
+    return Buffer.from(input).toString('base64');
   }
 
   decrypt(input: string): string {
-    const back: string = Buffer.from(input, 'base64').toString();
-
-    return back;
+    return Buffer.from(input, 'base64').toString();
   }
 }
