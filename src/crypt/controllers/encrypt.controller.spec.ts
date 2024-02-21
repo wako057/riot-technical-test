@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { EncryptController } from './encrypt.controller';
-import { CryptService } from '../../services/crypt.service';
-import { Base64 } from '../../providers/base64/base64';
+import { CryptService } from '../services/crypt.service';
+import { Base64 } from '../providers/base64/base64';
 
 describe('EncryptController', () => {
   let controller: EncryptController;

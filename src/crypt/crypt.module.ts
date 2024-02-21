@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { EncryptController } from './controllers/encrypt/encrypt.controller';
+import { EncryptController } from './controllers/encrypt.controller';
 import { CryptService } from './services/crypt.service';
 import { Base64 } from './providers/base64/base64';
 import { Sha256 } from './providers/sha256/sha256';
