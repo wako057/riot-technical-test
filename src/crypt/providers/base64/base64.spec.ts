@@ -15,4 +15,20 @@ describe('Base64', () => {
   it('should be defined', () => {
     expect(provider).toBeDefined();
   });
+
+  it('encode', () => {
+    const initialValue: string = 'test';
+    const expectedResult: string = 'dGVzdA==';
+    const result: string = provider.encrypt(initialValue);
+
+    expect(result).toEqual(expectedResult);
+  });
+
+  it('decode', () => {
+    const initialValue: string = 'dGVzdA==';
+    const expectedResult: string = 'test';
+    const result: string = provider.decrypt(initialValue);
+
+    expect(result).toEqual(expectedResult);
+  });
 });
