@@ -18,7 +18,6 @@ export class CryptController {
   @Post('encrypt')
   @UsePipes(new ValidationPipe())
   encrypt(@Body() dataPosted: FlexibleInputDto) {
-    console.log(`dataPosted: ${JSON.stringify(dataPosted)}`);
     return this.cryptService.encrypt(dataPosted);
   }
 
@@ -31,7 +30,6 @@ export class CryptController {
   @Post('sign')
   @UsePipes(new ValidationPipe())
   sign(@Body() dataPosted: FlexibleInputDto) {
-    console.log(dataPosted);
     return this.cryptService.sign(dataPosted);
   }
 
