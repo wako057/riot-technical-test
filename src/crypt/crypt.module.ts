@@ -9,8 +9,8 @@ import { ContentTypeMiddleware } from '../content-type.middleware';
   controllers: [CryptController],
   providers: [CryptService, Base64, Sha256],
 })
-export class CryptModule {
+export class CryptModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ContentTypeMiddleware).forRoutes('*');
+    consumer.apply(ContentTypeMiddleware).forRoutes(CryptController);
   }
 }
